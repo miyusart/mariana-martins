@@ -1,0 +1,266 @@
+:root {
+    --margin: 24px;
+    --gutter: 24px;
+
+    --black: hsla(0, 9%, 11%, 1);
+    --white: hsla(0, 0%, 91%, 1);
+    --primary200: hsla(343, 100%, 89%, 1);
+
+    /*FONT*/
+    --h1: 120px;
+    --h2: 64px;
+    --h3: 36px;
+    --h4: 24px;
+    --body: 20px;
+    --surface-default: var(--black);
+    --text-default: var(--white);
+    --heading-default: var(--primary200);
+    --surface-primary: var(--primary200);
+    --text-primary: var(--black);
+}
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    color: var(--text-default);
+    font-family: "Readex Pro", sans-serif;
+    font-weight: 400;
+}
+
+
+body {
+    background-color: var(--surface-default);
+    margin: 0px var(--margin);
+}
+
+
+h1 {
+    font-size: var(--h1);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: var(--h2);
+    color: var(--heading-default);
+}
+
+h3 {
+    font-size: var(--h3);
+}
+
+h4 {
+    font-size: var(--h4);
+}
+
+p {
+    font-size: var(--body);
+    font-weight: 300;
+}
+
+button {
+    border-radius: 64px;
+    font-size: var(--body);
+}
+
+.primary-button {
+    background-color: var(--surface-primary);
+    color: var(--text-primary);
+    padding: 12px 16px;
+}
+
+nav {
+    position: absolute;
+    right: var(--margin);
+    top: 40px;
+    display: flex;
+    width: 122px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--Spacing-2, 4px);
+    position: fixed;
+    font-size: var(--body);
+}
+
+nav a {
+    text-decoration: none;
+}
+
+main {
+    padding: 0px --margin !important;
+}
+
+#hero {
+    height: calc(100vh - 80px) !important;
+    padding: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#hero-title #Mariana {
+    color: palevioletred;
+}
+
+#hero-title #Martins {
+    color: pink;
+}
+
+#hero h1 {
+    text-transform: uppercase;
+}
+
+#hero-div {
+    display: inline-grid;
+    row-gap: 10px;
+    column-gap: var(--gutter);
+    align-self: stretch;
+    grid-template-rows: repeat(1, fit-content(100%));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: center;
+}
+
+#hero-h3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-column: 1 / span 6;
+    justify-self: stretch;
+}
+
+#hero-h3 strong {
+    color: palevioletred;
+}
+
+#hero-div button {
+    display: inline-flex;
+    padding: var(--Spacing-4, 12px) var(--Spacing-5, 16px);
+    align-items: center;
+    gap: var(--Spacing-2, 4px);
+    grid-row: 1 / span 1;
+    grid-column: 12 / span 1;
+    justify-self: end;
+    height: min-content;
+    width: max-content;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 64px;
+    padding: 16px 0px;
+    align-self: stretch;
+}
+
+#about h3 {
+    writing-mode: sideways-lr;
+}
+
+.about-title {
+    display: flex;
+    align-items: center;
+    gap: var(--Spacing-3, 8px);
+    align-self: stretch;
+}
+
+#about-main {
+    display: inline-grid;
+    column-gap: 32px;
+    align-self: stretch;
+    grid-template-rows: repeat(1, fit-content(100%));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.about-section {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    align-self: end;
+    grid-row: 1 / span 1;
+    justify-self: stretch;
+}
+
+.about-section #about-experience {
+    grid-column: 1 / span 5;
+}
+
+.about-section #about-education {
+    grid-column: 7 / span 5;
+}
+
+.about-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+}
+
+.about-details div {
+    display: flex;
+    width: 525px;
+    align-items: center;
+    gap: 8px;
+}
+
+#work-main {
+    display: inline-grid;
+    row-gap: var(--Spacing-8, 40px);
+    column-gap: var(--Spacing-6, 24px);
+    align-self: stretch;
+    grid-template-rows: repeat(2, fit-content(100%));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.work-card {
+    background-color: palevioletred;
+}
+
+.work-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+#faqs-section {
+    display: inline-grid;
+    row-gap: 24px;
+    column-gap: var(--gutter);
+    align-self: stretch;
+    grid-template-rows: repeat(1, fit-content(100%));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+#faqs-main {
+    display: flex;
+    padding: var(--Spacing-0, 0);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--Spacing-7, 32px);
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 6;
+    justify-self: stretch;
+}
+
+summary {
+    list-style: none;
+    gap: 32px;
+    font-size: var(--body);
+}
+
+footer {
+    width: calc(100vw-80px);
+    text-align: center;
+}
+
+/*main {
+    margin: var(--margin);
+}
