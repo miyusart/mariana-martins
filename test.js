@@ -11,7 +11,7 @@ function createNav(info) {
 
         let navItem = document.createElement("a");
         navItem.innerHTML = item['link'];
-        navItem.href = "#$item['link']";
+        navItem.href = "#"$item['link'];
 
         navSection.appendChild(navItem);
 
