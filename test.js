@@ -22,25 +22,25 @@ createNav(nav)
 
 const works = [
     {
-        image: "imgs/friendly_main.png",
+        image: "friendly_main.png",
         title: "Friendly",
         year: "2025",
         category: ["UX/UI Design"]
     },
     {
-        image: "imgs/mystic_main.png",
+        image: "mystic_main.png",
         title: "Mystic",
         year: "2025",
         category: ["UX/UI Design", "Web Design"]
     },
     {
-        image: "imgs/mystic_main.png",
+        image: "mystic_main.png",
         title: "Mystic",
         year: "2025",
         category: ["UX/UI Design", "Web Design"]
     },
     {
-        image: "imgs/mystic_main.png",
+        image: "mystic_main.png",
         title: "Mystic",
         year: "2025",
         category: ["UX/UI Design", "Web Design"]
