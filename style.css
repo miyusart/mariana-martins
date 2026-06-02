@@ -26,6 +26,7 @@
     color: var(--text-default);
     font-family: "Readex Pro", sans-serif;
     font-weight: 400;
+    scroll-behavior: smooth;
 }
 
 
@@ -187,12 +188,12 @@ section {
     justify-self: stretch;
 }
 
-.about-section #about-experience {
+#about-experience {
     grid-column: 1 / span 5;
 }
 
-.about-section #about-education {
-    grid-column: 7 / span 5;
+#about-education {
+    grid-column: 6 / span 5;
 }
 
 .about-details {
@@ -211,16 +212,32 @@ section {
 }
 
 #work-main {
-    display: inline-grid;
-    row-gap: var(--Spacing-8, 40px);
-    column-gap: var(--Spacing-6, 24px);
-    align-self: stretch;
-    grid-template-rows: repeat(2, fit-content(100%));
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows items to drop to the next row */
+    gap: 16px;
+    /* Spacing between rows and columns */
+    width: 100%;
 }
 
 .work-card {
-    background-color: palevioletred;
+    flex: calc((100% - (var(--gutter) * 2)) / 3);
+}
+
+.work-image-section {
+    object-fit: fill;
+}
+
+
+.work-image {
+    object-fit: fill;
+}
+
+
+
+.work-category-star {
+    width: 16px;
+    fill: var(--white);
 }
 
 .work-title {
@@ -228,6 +245,15 @@ section {
     justify-content: space-between;
     align-items: center;
     align-self: stretch;
+}
+
+.work-category-div {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: var(--Spacing-1, 2px) var(--Spacing-3, 8px);
+    align-self: stretch;
+    flex-wrap: wrap;
 }
 
 #faqs-section {
