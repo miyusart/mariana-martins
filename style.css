@@ -230,7 +230,8 @@ section {
 
 
 .work-image {
-    object-fit: fill;
+    width: 100%;
+    object-fit: contain;
 }
 
 
@@ -240,7 +241,7 @@ section {
     fill: var(--white);
 }
 
-.work-title {
+.work-title-section {
     display: flex;
     justify-content: space-between;
     align-items: center;

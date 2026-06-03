@@ -11,7 +11,7 @@ function createNav(info) {
 
         let navItem = document.createElement("a");
         navItem.innerHTML = item['link'];
-        navItem.href = "#"$item['link'];
+        navItem.href = "#" + item['link'];
 
         navSection.appendChild(navItem);
 
@@ -26,6 +26,12 @@ const works = [
         title: "Friendly",
         year: "2025",
         category: ["UX/UI Design"]
+    },
+    {
+        image: "imgs/mystic_main.png",
+        title: "Mystic",
+        year: "2025",
+        category: ["UX/UI Design", "Web Design"]
     },
     {
         image: "imgs/mystic_main.png",
@@ -60,6 +66,9 @@ function createWork(info) {
         workImage.src = item['image'];
         workImage.className = "work-image";
 
+        let workTitleSection = document.createElement("div");
+        workTitleSection.className = "work-title-section";
+
         let workTitle = document.createElement("h3");
         workTitle.innerHTML = item['title'];
         workTitle.className = "work-title";
@@ -78,8 +87,9 @@ function createWork(info) {
 
         //workImageSection.appendChild(workImage);
         workCard.appendChild(workImage);
-        workCard.appendChild(workTitle);
-        workCard.appendChild(workYear);
+        workCard.appendChild(workTitleSection);
+        workTitleSection.appendChild(workTitle);
+        workTitleSection.appendChild(workYear);
         workCard.appendChild(workCategoryDiv);
 
         workMain.appendChild(workCard);
