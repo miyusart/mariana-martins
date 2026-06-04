@@ -1,10 +1,12 @@
 :root {
     --margin: 24px;
     --gutter: 24px;
+    --gapsection: 80px;
 
     --black: hsla(0, 9%, 11%, 1);
     --white: hsla(0, 0%, 91%, 1);
     --primary200: hsla(343, 100%, 89%, 1);
+    --primary600: hsla(343, 74%, 62%, 1);
 
     /*FONT*/
     --h1: 120px;
@@ -12,12 +14,19 @@
     --h3: 36px;
     --h4: 24px;
     --body: 20px;
+    --caption: 16px;
+
+    /*TOKENS*/
     --surface-default: var(--black);
     --text-default: var(--white);
     --heading-default: var(--primary200);
+    --subheading-default: var(--primary600);
+
     --surface-primary: var(--primary200);
     --text-primary: var(--black);
 }
+
+
 
 * {
     margin: 0;
@@ -59,6 +68,10 @@ p {
     font-weight: 300;
 }
 
+caption {
+    font-size: var(--caption);
+}
+
 button {
     border-radius: 64px;
     font-size: var(--body);
@@ -88,7 +101,10 @@ nav a {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
     padding: 0px --margin !important;
+    gap: var(--gapsection);
 }
 
 #hero {
@@ -106,11 +122,11 @@ main {
 }
 
 #hero-title #Mariana {
-    color: palevioletred;
+    color: var(--subheading-default);
 }
 
 #hero-title #Martins {
-    color: pink;
+    color: var(--heading-default);
 }
 
 #hero h1 {
@@ -136,7 +152,7 @@ main {
 }
 
 #hero-h3 strong {
-    color: palevioletred;
+    color: var(--subheading-default);
 }
 
 #hero-div button {
@@ -162,6 +178,7 @@ section {
 
 #about h3 {
     writing-mode: sideways-lr;
+    color: var(--subheading-default);
 }
 
 .about-title {
@@ -204,19 +221,38 @@ section {
     align-self: stretch;
 }
 
-.about-details div {
+.about-title {
+display: flex;
+align-items: center;
+gap: var(--Spacing-3, 8px);
+align-self: stretch;
+}
+
+.about-title p {
+    flex: 1 0 0;
+    color: var(--heading-default);
+}
+
+.about-title caption {
+    display: inline-flex !important;
+}
+
+.tasks-section div {
     display: flex;
-    width: 525px;
     align-items: center;
     gap: 8px;
+}
+
+/*SEE THIS---------------------------------------------*/
+.tasks-section div img {
+    width: 12px;
+    fill: var(--white) !important;
 }
 
 #work-main {
     display: flex;
     flex-wrap: wrap;
-    /* Allows items to drop to the next row */
     gap: 16px;
-    /* Spacing between rows and columns */
     width: 100%;
 }
 
@@ -238,7 +274,7 @@ section {
 
 .work-category-star {
     width: 16px;
-    fill: var(--white);
+    fill: white;
 }
 
 .work-title-section {
@@ -286,6 +322,72 @@ summary {
 footer {
     width: calc(100vw-80px);
     text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    :root {
+        --h1: 64px;
+        --h2: 48px;
+        --h3: 32px;
+        --h4: 24px;
+        --body: 20px;
+    }
+
+    #hero-div {
+        display: flex;
+        flex-direction: column;
+        align-items: self-end;
+    }
+
+    #about-main {
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+    }
+
+    .about-section {
+        width: 100%;
+
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #about-experience {
+        grid-column: 1 / span 6;
+    }
+
+    #about-education {
+        grid-column: 7 / span 6;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    #about-main {
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+    }
+
+    .about-section {
+        width: 100%;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    :root {
+        --h1: 64px;
+        --h2: 48px;
+        --h3: 32px;
+        --h4: 24px;
+        --body: 20px;
+    }
+
+    #hero-div {
+        display: flex;
+        flex-direction: column;
+        align-items: self-end;
+    }
 }
 
 /*main {

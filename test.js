@@ -20,6 +20,134 @@ function createNav(info) {
 
 createNav(nav)
 
+const about = [
+    {
+        position: "UX/UI Designer @ hes-inovação",
+        year: "2025-Present",
+        tasks: ["Conducted UX research and applied it into user flows and information diagrams",
+            "Conducted usability tests and user interviews with blind, low vision and deaf users",
+            "Developed low and high fidelity wireframes and prototypes",
+            "Designed apps (android and iOS), responsive websites (institutional and e-commerce) and backoffices",
+            "Focused on usability and accessibility, applying WCAG Guidelines",
+            "Created and maintained design systems",
+            "Developed brand guidelines, visual identities, marketing strategies and social media posts",
+            "Worked with agile methodologies closely with the development team and the stakeholders",
+            "Integrated AI into my workflows"
+        ]
+    },
+    {
+        position: "Web Designer @ doppel",
+        year: "2022",
+        tasks: ["Developed an institutional website using HTML, CSS, JavaScript and PHP",
+            "Designed and prototyped using Adobe XD",
+            "Worked on social media posts"
+        ]
+    },
+    {
+        position: "Freelance Illustrator",
+        year: "2018-Present",
+        tasks: ["Developed personalized illustrations",
+            "Sold both online and in conventions"
+        ]
+    },
+    {
+        position: "Master's in Illustration and Animation @ Politechnique Institute of Cávado and Ave",
+        year: "2022-2025",
+        tasks: ["Was class representative and part of the Pedagogical Council, solving class matters and defending my colleagues’ interests",
+            "Wrote a thesis called “Queerness in animation: Intersectional Approach for Representing Diversity in Character Design”",
+            "Presented an article called “Rainbow Cartoons: Analysis of Queer Representation in Animated TV Shows” and publish one called “Animating Equality: The Contribute of Animation in Queer Acceptance”",
+            "Worked on a videoclip for B Fachada’s “Mudar de Método” which was nominated for “Best Student Movie” at Festa Mundial da Animação ‘25",
+            "Developed a 2D animated short called “Companhia”",
+            "Studied illustration, 2D and 3D animation, creative writing and video editing"
+        ]
+    },
+    {
+        position: "Bachelor's in Design and Multimedia @ University of Coimbra",
+        year: "2018-2022",
+        tasks: ["Developed an institutional website using HTML, CSS, JavaScrript and PHP",
+            "Designed and prototyped using Adobe XD",
+            "Worked on social media posts"
+        ]
+    },
+    {
+        position: "Training in UX/UI Design @ IEFP",
+        year: "2025",
+        tasks: ["Developed an institutional website using HTML, CSS, JavaScrript and PHP",
+            "Designed and prototyped using Adobe XD",
+            "Worked on social media posts"
+        ]
+    },
+    {
+        position: " in Illustration and Animation @ Politechnique Institute of Cávado and Ave",
+        year: "2022-2025",
+        tasks: ["Developed an institutional website using HTML, CSS, JavaScrript and PHP",
+            "Designed and prototyped using Adobe XD",
+            "Worked on social media posts"
+        ]
+    }
+
+]
+
+
+function createAbout(info) {
+    info.forEach((item, i) => {
+        const AboutExperienceSection = document.querySelector("#about-experience-section");
+        const AboutEducationSection = document.querySelector("#about-education-section");
+
+        let aboutDetails = document.createElement("details");
+
+        let aboutSummary = document.createElement("summary")
+        aboutSummary.className = "about-title";
+
+        let aboutTitle = document.createElement("p");
+        aboutTitle.innerHTML = item['position'];
+        let aboutYear = document.createElement("caption");
+        aboutYear.innerHTML = item['year'];
+        let aboutIcon = document.createElement("img");
+        aboutIcon.src = "imgs/chevron.svg";
+
+        
+        aboutSummary.appendChild(aboutTitle);
+        aboutSummary.appendChild(aboutYear);
+        aboutSummary.appendChild(aboutIcon);
+
+        let aboutTasksSection = document.createElement("div");
+        aboutTasksSection.className = "tasks-section";
+
+        item['tasks'].forEach((itemTasks, i) => {
+            let aboutTasks = document.createElement("p");
+            aboutTasks.innerHTML = itemTasks;
+
+            let taskIcon = document.createElement("img");
+            taskIcon.src = "imgs/star.svg";
+
+            let taskDiv = document.createElement("div");
+            taskDiv.src = "imgs/star.svg";
+
+
+            taskDiv.appendChild(taskIcon);
+            taskDiv.appendChild(aboutTasks);
+            aboutTasksSection.appendChild(taskDiv);
+        });
+
+        aboutDetails.appendChild(aboutTasksSection);
+        aboutDetails.appendChild(aboutSummary);
+
+        if (i < 3) {
+            AboutExperienceSection.appendChild(aboutDetails);
+        } else {
+            AboutEducationSection.appendChild(aboutDetails);
+        }
+    });
+}
+
+createAbout(about);
+
+
+
+
+
+
 const works = [
     {
         image: "imgs/friendly_main.png",
@@ -97,3 +225,30 @@ function createWork(info) {
 }
 
 createWork(works);
+
+
+const faqs = [
+    {
+        question: "questão 1",
+        answer: "resposta 1",
+    },
+    {
+        question: "questão 2",
+        answer: "resposta 2",
+    },
+    {
+        question: "questão 3",
+        answer: "resposta 3",
+    }
+]
+
+function createFaqs(info) {
+    info.forEach((item, i) => {
+        const FaqsMain = document.querySelector("#faqs-main");
+
+        let FaqQuestion = document.createElement("summary");
+        let FaqAnswer = document.createElement("p");
+    });
+}
+
+createFaqs(faqs);
