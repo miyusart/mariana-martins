@@ -12,10 +12,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet">
 
-</head>
 
 <body>
-    <nav>
+    <div id="nav-background"></div>
+    <nav id="nav-home">
         <!--<a href="#about" class="link_nav">about</a>
         <a href="#work" class="link_nav">work</a>
         <a href="#faq's" class="link_nav">faq's</a>
@@ -24,6 +24,15 @@
 
     <main>
         <section id="hero">
+            <svg class="hero-star" id="hero-star-big" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 40L28.6863 28.6863L40 6.94792e-07L51.3137 28.6863L80 40L51.3137 51.3137L40 80L28.6863 51.3137L0 40Z"/>
+            </svg>
+
+                        <svg class="hero-star" id="hero-star-small" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 40L28.6863 28.6863L40 6.94792e-07L51.3137 28.6863L80 40L51.3137 51.3137L40 80L28.6863 51.3137L0 40Z"/>
+            </svg>
             <div id="hero-title">
                 <h1 id="Mariana">Mariana</h1>
                 <h1 id="Martins">Martins</h1>
@@ -34,7 +43,9 @@
                         making them
                         accessible!</h3>
                 </div>
-                <button href="#contacts" class="primary-button">Get in touch!</button>
+                <button href="#contacts" class="primary-button">
+                    <img src="imgs/star.svg" alt="">
+                    Get in touch!</button>
             </div>
         </section>
 
@@ -43,43 +54,12 @@
             <div id="about-main">
                 <div class="about-section" id="about-experience">
                     <h3>Experience</h3>
-                    <div id="about-experience-section">
-                        <!--<details open>
-                            <summary class="about-title">
-                                <h4>UX/UI Designer @hes-inovação</h4>
-                                <p>2025-present</p>
-                            </summary>
-                            <div class="about-details">
-                                <div>
-                                    <img src="imgs/star.svg" alt="">
-
-                                    <p>
-                                        Conducted UX research and applied it into user flows and information diagrams
-                                    </p>
-                                </div>
-                                <div>
-                                    <img src="imgs/star.svg" alt="">
-
-                                    <p>
-                                        Conducted usability tests and user interviews with blind, low vision and deaf
-                                        users
-                                    </p>
-                                </div>
-                                <div>
-                                    <img src="imgs/star.svg" alt="">
-
-                                    <p>
-                                        Developed low and high fidelity wireframes and prototypes
-                                    </p>
-                                </div>
-                            </div>
-                        </details>-->
+                    <div class="about-subsection" id="about-experience-section">
                     </div>
                 </div>
                 <div class="about-section" id="about-education">
                     <h3>Education</h3>
-                    <div id="about-education-section">
-                        
+                    <div class="about-subsection" id="about-education-section">
                     </div>
                 </div>
             </div>
@@ -144,15 +124,18 @@
 
         <section id="contacts">
             <h2>contacts</h2>
-            <div>
+            <div id="contacts-main">
                 <a href="https://www.linkedin.com/in/marianacvmartins/">linkedin</a>
                 <a href="#">marianacvmartins00@gmail.com</a>
             </div>
         </section>
     </main>
     <footer>
-        <p id="credits">designed and coded by yours truly</p>
+        <div id="footer-credits">
+            <img src="imgs/pepita.png" alt="">
+            <p>designed and coded by yours truly</p>
+        </div>
     </footer>
 </body>
 
-<script src="test.js"></script>
+<script src="javascript.js"></script>

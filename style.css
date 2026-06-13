@@ -6,15 +6,16 @@
     --black: hsla(0, 9%, 11%, 1);
     --white: hsla(0, 0%, 91%, 1);
     --primary200: hsla(343, 100%, 89%, 1);
+    --primary300: hsla(342, 87%, 82%, 1);
     --primary600: hsla(343, 74%, 62%, 1);
 
     /*FONT*/
     --h1: 120px;
     --h2: 64px;
     --h3: 36px;
-    --h4: 24px;
-    --body: 20px;
-    --caption: 16px;
+    --h4: 22px;
+    --body: 18px;
+    --caption: 14px;
 
     /*TOKENS*/
     --surface-default: var(--black);
@@ -23,6 +24,7 @@
     --subheading-default: var(--primary600);
 
     --surface-primary: var(--primary200);
+    --surface-primary-hover: var(--primary300);
     --text-primary: var(--black);
 }
 
@@ -42,6 +44,7 @@
 body {
     background-color: var(--surface-default);
     margin: 0px var(--margin);
+    overflow-x: hidden;
 }
 
 
@@ -63,6 +66,10 @@ h4 {
     font-size: var(--h4);
 }
 
+b {
+    font-weight: 500;
+}
+
 p {
     font-size: var(--body);
     font-weight: 300;
@@ -70,6 +77,10 @@ p {
 
 caption {
     font-size: var(--caption);
+}
+
+a {
+    text-decoration: none;
 }
 
 button {
@@ -83,7 +94,12 @@ button {
     padding: 12px 16px;
 }
 
-nav {
+.secondary-button {
+    border: 2px solid var(--primary200);
+    padding: 12px 16px;
+}
+
+#nav-home {
     position: absolute;
     right: var(--margin);
     top: 40px;
@@ -100,6 +116,17 @@ nav a {
     text-decoration: none;
 }
 
+#nav-background {
+    width: 273px;
+    height: 273px;
+    position: fixed;
+    right: -105px;
+    top: -65px;
+    border-radius: 142px;
+    opacity: 0.7;
+    background: radial-gradient(50% 50% at 50% 50%, var(--Colour-Primary-600, #E6557E) 5.29%, rgba(230, 85, 126, 0.56) 46.15%, rgba(230, 85, 126, 0.00) 100%);
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -113,6 +140,68 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+
+.hero-star {
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+#hero-star-big {
+    width: 432px;
+    position: absolute;
+    right: -40px;
+    bottom: -40px;
+    filter: blur(24px);
+    z-index: -1;
+    animation-name: hero-star-big;
+    fill: var(--primary600);
+}
+
+#hero-star-small {
+    width: 320px;
+    position: absolute;
+    right: 420px;
+    bottom: 220px;
+    filter: blur(24px);
+    z-index: -1;
+    animation-name: hero-star-small;
+    fill: var(--primary300);
+}
+
+
+@keyframes hero-star-big {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes hero-star-small {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 #hero-title {
@@ -167,6 +256,15 @@ main {
     width: max-content;
 }
 
+#hero-div button img {
+    width: 0px;
+}
+
+#hero-div button:hover img {
+    width: 16px;
+    animation: 300ms ease-in-out;
+}
+
 section {
     display: flex;
     flex-direction: column;
@@ -205,6 +303,13 @@ section {
     justify-self: stretch;
 }
 
+.about-subsection {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
 #about-experience {
     grid-column: 1 / span 5;
 }
@@ -221,11 +326,12 @@ section {
     align-self: stretch;
 }
 
+
 .about-title {
-display: flex;
-align-items: center;
-gap: var(--Spacing-3, 8px);
-align-self: stretch;
+    display: flex;
+    align-items: center;
+    gap: var(--Spacing-3, 8px);
+    align-self: stretch;
 }
 
 .about-title p {
@@ -252,7 +358,7 @@ align-self: stretch;
 #work-main {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 32px 16px;
     width: 100%;
 }
 
@@ -260,17 +366,12 @@ align-self: stretch;
     flex: calc((100% - (var(--gutter) * 2)) / 3);
 }
 
-.work-image-section {
-    object-fit: fill;
-}
-
-
 .work-image {
+    width: fit-content;
+    border: 2px solid var(--primary200);
+    border-radius: 4px;
     width: 100%;
-    object-fit: contain;
 }
-
-
 
 .work-category-star {
     width: 16px;
@@ -286,11 +387,16 @@ align-self: stretch;
 
 .work-category-div {
     display: flex;
-    align-items: flex-start;
-    align-content: flex-start;
-    gap: var(--Spacing-1, 2px) var(--Spacing-3, 8px);
+    align-items: center;
+    align-content: center;
+    gap: 8px;
     align-self: stretch;
     flex-wrap: wrap;
+    border: 2px palevioletred;
+}
+
+.work-category-div img {
+    width: 12px;
 }
 
 #faqs-section {
@@ -319,12 +425,157 @@ summary {
     font-size: var(--body);
 }
 
-footer {
-    width: calc(100vw-80px);
-    text-align: center;
+#contacts-main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-@media only screen and (max-width: 600px) {
+#contacts a {
+    text-decoration: underline;
+}
+
+footer {
+    width: calc(100vw - calc (var(--margin) * 2));
+    text-align: center;
+    background-color: palevioletred;
+}
+
+#footer-credits img {
+    visibility: hidden;
+    display: block;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    width: fit-content;
+    bottom: 24px;
+    animation-name: credits;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+#footer-credits:hover img {
+    visibility: visible;
+}
+
+@keyframes credits {
+
+    0% {
+        transform: scaleX(1);
+    }
+
+    50% {
+        transform: scaleX(-1);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+
+#project header {
+    height: 100vh;
+}
+
+#project header img {
+    width: calc(100vw - 48px);
+    margin: 0 -24px;
+}
+
+#project #information {
+    display: inline-grid;
+    column-gap: 32px;
+    align-self: stretch;
+    grid-template-rows: repeat(1, fit-content(100%));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+#project h4 {
+    grid-column: 1 / span 8;
+}
+
+/*.about-section {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    align-self: end;
+    grid-row: 1 / span 1;
+    justify-self: stretch;
+}
+
+.about-subsection {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+#about-experience {
+    grid-column: 1 / span 5;
+}*/
+
+
+
+#project main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--Spacing-10, 64px);
+    align-self: stretch;
+}
+
+#project-section {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.project-item {
+    display: inline-grid;
+    row-gap: var(--Spacing-0, 0);
+    column-gap: var(--Spacing-5, 16px);
+    align-self: stretch;
+    grid-template-rows: repeat(1, fit-content(100%));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.project-item h4 {
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 2;
+    justify-self: stretch;
+}
+
+.project-item div {
+    grid-row: 1 / span 1;
+    grid-column: 3 / span 6;
+    justify-self: stretch;
+}
+
+.project-item p {
+    grid-row: 1 / span 1;
+    grid-column: 3 / span 6;
+    justify-self: stretch;
+}
+
+#nav-project {
+    position: sticky;
+    top: 100;
+    border-radius: 8px;
+    border: 2px solid var(--Colour-Primary-600, #E6557E);
+    display: flex;
+    padding: var(--Spacing-7, 32px) var(--Spacing-6, 24px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+@media only screen and (max-width: 800px) {
     :root {
         --h1: 64px;
         --h2: 48px;
@@ -347,8 +598,22 @@ footer {
 
     .about-section {
         width: 100%;
-
     }
+
+    #hero-star-big {
+        width: 320px;
+        right: -40px;
+        bottom: 180px;
+        filter: blur(16px);
+    }
+
+    #hero-star-small {
+        width: 180px;
+        right: 420px;
+        bottom: 320px;
+        filter: blur(16px);
+    }
+
 }
 
 @media only screen and (max-width: 1200px) {
@@ -361,11 +626,12 @@ footer {
     }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 800px) {
     #about-main {
         display: flex;
         flex-direction: column;
         align-items: self-start;
+        gap: 80px;
     }
 
     .about-section {
@@ -379,8 +645,8 @@ footer {
         --h1: 64px;
         --h2: 48px;
         --h3: 32px;
-        --h4: 24px;
-        --body: 20px;
+        --h4: 22px;
+        --body: 18px;
     }
 
     #hero-div {
