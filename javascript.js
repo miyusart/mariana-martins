@@ -9,10 +9,15 @@ function createNav(info) {
     info.forEach((item, i) => {
         const navSection = document.querySelector("nav");
 
-        let navItem = document.createElement("a");
-        navItem.innerHTML = item['link'];
-        navItem.href = "#" + item['link'];
+        let navItem = document.createElement("div");
+        let navA = document.createElement("a");
+        navA.innerHTML = item['link'];
+        navA.href = "#" + item['link'];
+        let navIcon = document.createElement("img");
+        navIcon.src = "imgs/star-white.svg";
 
+        navItem.appendChild(navIcon);
+        navItem.appendChild(navA);
         navSection.appendChild(navItem);
 
     });
@@ -34,11 +39,11 @@ const about = [
             "Created and maintained design systems",
             "Developed brand guidelines, visual identities, marketing strategies and social media posts",
             "Worked with agile methodologies closely with the development team and the stakeholders",
-            "Integrated AI into my workflows"
+            "Integrated AI into my workflow"
         ]
     },
     {
-        position: "Web Designer @ doppel",
+        position: "Web Designer Intern @ doppel",
         year: "2022",
         tasks: ["Developed an institutional website using HTML, CSS, JavaScript and PHP",
             "Designed and prototyped using Adobe XD",
@@ -53,7 +58,7 @@ const about = [
         ]
     },
     {
-        position: "Master's in Illustration and Animation @ Politechnique Institute of Cávado and Ave",
+        position: "Master's in Illustration and Animation @ Polytechnic  Institute of Cávado and Ave",
         year: "2022-2025",
         tasks: ["Was class representative and part of the Pedagogical Council, solving class matters and defending my colleagues’ interests",
             "Wrote a thesis called “Queerness in animation: Intersectional Approach for Representing Diversity in Character Design”",
@@ -82,7 +87,7 @@ const about = [
     {
         position: "UX/UI Courses @ UXCEL",
         year: "2022-2025",
-        tasks: ["Took courses on accessibility, information architecture, ux research and writing, wireframing and prototyping"
+        tasks: ["Took courses on accessibility, information architecture, UX research and writing, wireframing and prototyping"
         ]
     }
 
@@ -119,7 +124,7 @@ function createAbout(info) {
             aboutTasks.innerHTML = itemTasks;
 
             let taskIcon = document.createElement("img");
-            taskIcon.src = "imgs/star.svg";
+            taskIcon.src = "imgs/star-white.svg";
 
             let taskDiv = document.createElement("div");
 
@@ -138,6 +143,11 @@ function createAbout(info) {
             AboutEducationSection.appendChild(aboutDetails);
         }
 
+        if (i == 0) {
+            aboutDetails.open = true;
+        }
+
+        aboutIcon.style.transitionDuration = '0.3s';
 
         aboutDetails.addEventListener("toggle", function () {
             if (aboutDetails.open) {
@@ -195,11 +205,14 @@ function createWork(info) {
         workCard.href = item['title'] + ".html";
         workCard.className = "work-card";
 
-        /*let workImageSection = document.createElement("div");
-        workImageSection.className = "work-image-section";*/
+        let workImageSection = document.createElement("div");
+        workImageSection.className = "work-image-section";
         let workImage = document.createElement("img");
         workImage.src = item['image'];
         workImage.className = "work-image";
+        let workImageIcon = document.createElement("img");
+        workImageIcon.src = "imgs/star.svg";
+        workImageIcon.className = "work-icon";
 
         let workTitleSection = document.createElement("div");
         workTitleSection.className = "work-title-section";
@@ -223,14 +236,17 @@ function createWork(info) {
             workCategoryDiv.appendChild(workCategory);
         });
 
-        //workImageSection.appendChild(workImage);
-        workCard.appendChild(workImage);
+        workImageSection.appendChild(workImage); 
+        workImageSection.appendChild(workImageIcon);
+        workCard.appendChild(workImageSection);
         workCard.appendChild(workTitleSection);
         workTitleSection.appendChild(workTitle);
         workTitleSection.appendChild(workYear);
         workCard.appendChild(workCategoryDiv);
 
         workMain.appendChild(workCard);
+
+
     });
 }
 
@@ -239,33 +255,70 @@ createWork(works);
 
 const faqs = [
     {
-        question: "questão 1",
-        answer: "resposta 1",
+        question: "What softwares do you use?",
+        answer: "Academically, I mainly used the <b>Adobe programs</b>, specially Illustrator, Photoshop, Indesign, After Effects and Premier. However, since pivoting to UX/UI, my main tool has been <b>Figma</b>, since it is the industry standard and due to its versatility (Figjam, Design, Slides), allowing it to be used during different steps of the UX process. For organization also use ClickUp and Notion, and Miro for brainstorming",
     },
     {
-        question: "questão 2",
-        answer: "resposta 2",
+        question: "What was your most challenging project?",
+        answer: "Ironically, my most challenging project was also my first one - an <b>app heavily reliant on accessibility</b>, since its target audience are blind, low vision and deaf people. Knowing only the theory about accessibility, at that point, it was vital to conduct a lot of research on how specially blind and low vision people use smartphones in order to have a functional and useful product. Something that really contributed to the success of this project were the usability tests conducted, in which we gathered relevant feedback, from the actual target audience, that allowed us to create a more inclusive app",
     },
     {
-        question: "questão 3",
-        answer: "resposta 3",
+        question: "What motivates you?",
+        answer: "<b>I love creating</b>! My hobbies include creating, either by drawing, crocheting, cooking or baking. So, naturally, I love what I do for work - <b>creating solutions for a specific problem</b>. It keeps me curious, experimental and imaginative",
+    },
+    {
+        question: "What are you hoping to learn?",
+        answer: "The intent is always to become better at what I do, that being UX/UI or design as a whole, of course! I'd really love to learn more about acessibility as well so I can create products for more and more people. Besides that, I've been tackling code lately (by creating this website), but I've still got so much more to learn, so, whenever I find the opportunity I'd like to learn React and Creative Coding to create better and more interesting websites",
     }
 ]
 
 function createFaqs(info) {
     info.forEach((item, i) => {
-        const FaqsMain = document.querySelector("#faqs-main");
+        const faqMain = document.querySelector("#faqs-main");
 
-        let FaqQuestion = document.createElement("summary");
-        let FaqAnswer = document.createElement("p");
+        let faqDetails = document.createElement("details");
+        faqDetails.name = "faqDetails";
+
+        let faqSummary = document.createElement("summary");
+        faqSummary.className = "faq-title";
+
+        let faqQuestion = document.createElement("p");
+        faqQuestion.innerHTML = item['question'];
+        let faqIcon = document.createElement("img");
+        faqIcon.src = "imgs/chevron.svg";
+
+        faqSummary.appendChild(faqQuestion);
+        faqSummary.appendChild(faqIcon);
+
+        let faqAnswer = document.createElement("p");
+        faqAnswer.className = "answer-section"
+        faqAnswer.innerHTML = item['answer'];
+
+        faqDetails.appendChild(faqSummary);
+        faqDetails.appendChild(faqAnswer);
+        faqMain.appendChild(faqDetails);
+
+        faqIcon.style.transitionDuration = '0.3s';
+
+        faqDetails.addEventListener("toggle", function () {
+            if (faqDetails.open) {
+                faqIcon.style.transform = 'rotate(180deg)';
+            } else {
+                faqIcon.style.transform = 'rotate(0deg)';
+            }
+        });
     });
 }
 
 createFaqs(faqs);
 
 
-/*const creditsP = document.querySelector("#footer-credits p");
-if (creditsP.hover) {
-    const creditsImage = document.querySelector("#footer-credits img");
-    creditsImage.style.display = 'none';
-}*/
+const creditsP = document.querySelector("#footer-credits p");
+const creditsImage = document.querySelector("#footer-credits img");
+creditsP.addEventListener("mouseover", (event) => {
+    creditsImage.style.visibility = 'visible';
+});
+creditsP.addEventListener("mouseout", (event) => {
+    creditsImage.style.visibility = 'hidden';
+});
+
