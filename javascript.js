@@ -178,19 +178,19 @@ const works = [
         category: ["UX/UI Design", "Web Design"]
     },
     {
-        image: "imgs/mystic_main.png",
+        image: "imgs/ccdm_main.png",
         title: "CCDM",
         year: "2019",
         category: ["Visual Identity", "Graphic Design", "Web Design", "Programming", "Front End Development"]
     },
     {
-        image: "imgs/mystic_main.png",
+        image: "imgs/garagem_main.png",
         title: "Garagem Clássica",
         year: "2025",
         category: ["UX/UI Design", "Web Design"]
     },
     {
-        image: "imgs/mystic_main.png",
+        image: "imgs/ds_main.png",
         title: "Design System Template",
         year: "2026",
         category: ["UX/UI Design", "Web Design"]
@@ -202,7 +202,7 @@ function createWork(info) {
         const workMain = document.querySelector("#work-main");
 
         let workCard = document.createElement("a");
-        workCard.href = item['title'] + ".html";
+        workCard.href = item['title'.toLowerCase()] + ".html";
         workCard.className = "work-card";
 
         let workImageSection = document.createElement("div");
@@ -321,4 +321,3 @@ creditsP.addEventListener("mouseover", (event) => {
 creditsP.addEventListener("mouseout", (event) => {
     creditsImage.style.visibility = 'hidden';
 });
-

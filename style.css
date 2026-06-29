@@ -482,6 +482,7 @@ summary {
     list-style: none;
     gap: 32px;
     font-size: var(--body);
+    cursor: pointer;
 }
 
 .faq-title {
@@ -697,32 +698,35 @@ footer p {
 }
 
 
+@media only screen and (max-width: 1200px) {
+    #about-experience {
+        grid-column: 1 / span 6;
+    }
 
+    #about-education {
+        grid-column: 7 / span 6;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #hero-h3 {
+        grid-column: 1 / span 8;
+    }
+
+    #faqs-main {
+        grid-column: 1 / span 8;
+    }
+}
 
 @media only screen and (max-width: 800px) {
     :root {
-        --h1: 64px;
+        --margin: 24px;
+
+        --h1: 80px;
         --h2: 48px;
         --h3: 32px;
         --h4: 22px;
         --body: 18px;
-    }
-
-    #hero-div {
-        display: flex;
-        flex-direction: column;
-        align-items: self-end;
-        gap: 24x;
-    }
-
-    #about-main {
-        display: flex;
-        flex-direction: column;
-        align-items: self-start;
-    }
-
-    .about-section {
-        width: 100%;
     }
 
     #hero-star-big {
@@ -739,45 +743,6 @@ footer p {
         filter: blur(16px);
     }
 
-}
-
-@media only screen and (max-width: 1200px) {
-    #about-experience {
-        grid-column: 1 / span 6;
-    }
-
-    #about-education {
-        grid-column: 7 / span 6;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    #about-main {
-        display: flex;
-        flex-direction: column;
-        align-items: self-start;
-        gap: 80px;
-    }
-
-    .about-section {
-        width: 100%;
-    }
-
-    #project-section {
-        grid-column: 1 / span 9;
-    }
-}
-
-
-@media only screen and (max-width: 600px) {
-    :root {
-        --h1: 64px;
-        --h2: 48px;
-        --h3: 32px;
-        --h4: 22px;
-        --body: 18px;
-    }
-
     #hero-div {
         display: flex;
         flex-direction: column;
@@ -785,16 +750,55 @@ footer p {
         gap: 24x;
     }
 
-    #nav-section {
-        display: none;
-    }
-
-    #project main {
+    #about-main {
         display: flex;
         flex-direction: column;
+        align-items: self-start;
+        gap: 64px;
+    }
+
+    .about-section {
+        width: 100%;
+    }
+
+    #faqs-main {
+        grid-column: 1 / span 10;
     }
 }
 
-/*main {
-    margin: var(--margin);
-}*/
+@media only screen and (max-width: 600px) {
+    :root {
+        --margin: 16px;
+
+        --h1: 64px;
+        --h2: 48px;
+        --h3: 28px;
+    }
+
+    .about-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #about h3 {
+        writing-mode: horizontal-tb;
+    }
+
+    #hero-star-big {
+        width: 280px;
+        right: -40px;
+        bottom: 220px;
+        filter: blur(16px);
+    }
+
+    #hero-star-small {
+        width: 200px;
+        left: -24px;
+        bottom: 400px;
+        filter: blur(16px);
+    }
+
+        #faqs-main {
+        grid-column: 1 / span 12;
+    }
+}
