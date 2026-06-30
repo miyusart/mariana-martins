@@ -40,6 +40,8 @@
     font-family: "Readex Pro", sans-serif;
     font-weight: 400;
     scroll-behavior: smooth;
+    scrollbar-color: var(--primary600);
+    scrollbar-width: thin;
 }
 
 
@@ -392,8 +394,8 @@ details {
 }
 
 #work-main {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto auto auto;
     gap: 32px 16px;
     width: 100%;
 }
@@ -635,6 +637,10 @@ footer p {
     justify-self: stretch;
 }
 
+.project-item .title h4 {
+    color: var(--primary200);
+}
+
 .project-item .text {
     display: flex;
     flex-direction: column;
@@ -761,8 +767,22 @@ footer p {
         width: 100%;
     }
 
+    #work-main {
+        grid-template-columns: auto auto;
+    }
+
     #faqs-main {
         grid-column: 1 / span 10;
+    }
+
+    #project-section {
+        grid-column: 1 / span 9;
+    }
+
+    .project-item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
 }
 
@@ -798,7 +818,73 @@ footer p {
         filter: blur(16px);
     }
 
-        #faqs-main {
+    #work {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    #work-main {
+        display: flex;
+        overflow-x: scroll;
+
+        scroll-snap-type: x mandatory;
+        cursor: grab;
+        scroll-marker-group: after;
+        anchor-name: --work-main;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    #work-main::-webkit-scrollbar {
+        display: none;
+    }
+
+    .work-card {
+        flex: 0 0 80%;
+        scroll-snap-align: center;
+    }
+
+    #work-main::scroll-marker-group {
+        position: absolute;
+        position-anchor: --work-main;
+        top: calc(anchor(bottom) + 20px);
+        justify-self: anchor-center;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .work-card::scroll-marker {
+        content: attr(data-accName);
+        width: 12px;
+        height: 12px;
+        background-color: var(--primary200);
+        border-radius: 50%;
+        overflow: hidden;
+        text-indent: 8px;
+        transition: 0.3s;
+    }
+
+    .work-card::scroll-marker:target-current {
+        background-color: var(--primary600);
+    }
+
+    #faqs-main {
         grid-column: 1 / span 12;
+    }
+
+    #project-section {
+        grid-column: 1 / span 12;
+    }
+
+    .project-item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #project #nav-section {
+        visibility: hidden;
     }
 }
