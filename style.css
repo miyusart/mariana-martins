@@ -795,6 +795,14 @@ footer p {
         --h3: 28px;
     }
 
+    #nav-background {
+        visibility: hidden;
+    }
+
+    nav {
+        visibility: hidden;
+    }
+
     .about-section {
         flex-direction: column;
         align-items: flex-start;
@@ -827,13 +835,14 @@ footer p {
     #work-main {
         display: flex;
         overflow-x: scroll;
-
         scroll-snap-type: x mandatory;
         cursor: grab;
         scroll-marker-group: after;
         anchor-name: --work-main;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        width: calc(100% + 32px);
+        margin-left: -16px;
     }
 
     #work-main::-webkit-scrollbar {
