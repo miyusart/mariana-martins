@@ -405,6 +405,7 @@ details {
     flex-direction: column;
     gap: 8px;
     width: 100%
+    background-color: pink;
 }
 
 .work-image-section {
