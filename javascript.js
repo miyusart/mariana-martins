@@ -143,7 +143,7 @@ function createAbout(info) {
             AboutEducationSection.appendChild(aboutDetails);
         }
 
-        if (i == 0) {
+        if (i == 0 && window.matchMedia("(max-width: 600px)")) {
             aboutDetails.open = true;
         }
 
@@ -236,7 +236,7 @@ function createWork(info) {
             workCategoryDiv.appendChild(workCategory);
         });
 
-        workImageSection.appendChild(workImage); 
+        workImageSection.appendChild(workImage);
         workImageSection.appendChild(workImageIcon);
         workCard.appendChild(workImageSection);
         workCard.appendChild(workTitleSection);
