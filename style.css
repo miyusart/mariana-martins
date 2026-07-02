@@ -848,11 +848,15 @@ footer p {
         display: flex;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
-        cursor: grab;
         scroll-marker-group: after;
         anchor-name: --work-main;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        background-color: pink;
+        width: calc(100vw + calc(var(--margin) * 2));
+        overflow-y: visible;
+        margin: 0 calc(var(--margin) * -2);
+        gap: 0px;
     }
 
     #work-main::-webkit-scrollbar {
@@ -862,6 +866,15 @@ footer p {
     .work-card {
         flex: 0 0 80%;
         scroll-snap-align: center;
+        margin: 0 calc(var(--margin) / 2);
+    }
+
+    .work-card:first-child {
+        margin-left: calc(var(--margin) * 2);
+    }
+
+    .work-card:last-child {
+        margin-right: calc(var(--margin) * 2);
     }
 
     #work-main::scroll-marker-group {

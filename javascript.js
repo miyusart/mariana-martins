@@ -143,7 +143,7 @@ function createAbout(info) {
             AboutEducationSection.appendChild(aboutDetails);
         }
 
-        if (i == 0 && window.matchMedia("(max-width: 600px)")) {
+        if (i == 0) {
             aboutDetails.open = true;
         }
 
