@@ -1,5 +1,5 @@
 :root {
-     --margin: 40px;
+    --margin: 40px;
     --gutter: 24px;
     --gapsection: 80px;
 
@@ -560,15 +560,17 @@ footer p {
 
 #project header {
     height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #project header img {
     width: 100vw;
-    margin: calc(var(--margin) * -1)
+    margin: 0 calc(var(--margin) * -1);
 }
 
 #project #information {
-    margin-top: 40px;
     display: inline-grid;
     column-gap: 16px;
     row-gap: 16px;
@@ -654,6 +656,10 @@ footer p {
     grid-row: 1 / span 1;
     grid-column: 3 / span 7;
     justify-self: stretch;
+}
+
+#project ul {
+    padding-left: 16px;
 }
 
 #project li {
@@ -800,16 +806,19 @@ footer p {
         --margin: 16px;
 
         --h1: 64px;
-        --h2: 48px;
+        --h2: 44px;
         --h3: 28px;
     }
 
-    #nav-background {
+    #home #nav-background {
         visibility: hidden;
     }
 
-    nav {
-        visibility: hidden;
+    #project #nav-background {
+        width: 200px;
+        height: 200px;
+        right: -80px;
+        top: -65px;
     }
 
     .about-section {
@@ -882,6 +891,11 @@ footer p {
 
     #faqs-main {
         grid-column: 1 / span 12;
+    }
+
+    #project header img {
+        width: 140vw;
+        margin: 0 calc(var(--margin) * -1);
     }
 
     #project #information>* {
